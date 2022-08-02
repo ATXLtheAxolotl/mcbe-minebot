@@ -7,4 +7,6 @@ var client = new MineFlayer({
     offline: true
 })
 
-client.connect()
+client.on('ready', () => {
+    console.log('Bot Ready')
+})

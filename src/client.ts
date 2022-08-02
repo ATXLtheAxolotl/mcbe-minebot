@@ -22,6 +22,10 @@ export class MineFlayer extends EventEmitter {
             this.connected = true
             this.emit('ready')
         })
+        this._client.on('close', () => {
+            this.connected = false
+            this.emit('disconnect')
+        })
     }
 
 
