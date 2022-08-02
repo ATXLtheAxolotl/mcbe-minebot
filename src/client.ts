@@ -15,7 +15,7 @@ export class MineFlayer extends EventEmitter {
         this.options = options
     }
 
-    private events() {
+    private _events() {
         this._client.on('ready', () => {
             this.connected = true
             this.emit('ready')
@@ -26,7 +26,7 @@ export class MineFlayer extends EventEmitter {
         this._client = createClient({
             ...this.options
         })
-        this.events()
+        this._events()
     }
 
 }
