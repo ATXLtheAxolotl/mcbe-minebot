@@ -13,20 +13,16 @@ export class MineFlayer extends EventEmitter {
     constructor(options: MineflayerOptions) {
         super()
         this.options = options
-    }
 
-    private _events() {
+        this._client = createClient({
+            ...this.options
+        })
+
         this._client.on('ready', () => {
             this.connected = true
             this.emit('ready')
         })
     }
 
-    public connect() {
-        this._client = createClient({
-            ...this.options
-        })
-        this._events()
-    }
 
 }
