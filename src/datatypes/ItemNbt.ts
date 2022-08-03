@@ -1,6 +1,7 @@
 export class ItemNbt {
 
     public has_nbt: number
+    public nbt: any
     public can_place_on: any[]
     public can_destory: any[]
 
@@ -10,8 +11,14 @@ export class ItemNbt {
         this.can_destory = packet.can_destory
     }
 
-    public setNbt(enabled: boolean) {
+    public setNbtEnabled(enabled: boolean) {
         this.has_nbt = enabled ? 1 : 0
+    }
+
+    // TODO: Make a NBT parser as nbt is sent diffrently in packets to normal strings
+    // TODO: Make types for nbt data
+    public setNbt(nbt: any) {
+        this.nbt = nbt
     }
 
     public setCanPlaceOn(data: any[]) {
@@ -27,6 +34,7 @@ export class ItemNbt {
             has_nbt: this.has_nbt,
             can_place_on: this.can_place_on,
             can_destory: this.can_destory,
+            nbt: this.nbt
         })
     }
 

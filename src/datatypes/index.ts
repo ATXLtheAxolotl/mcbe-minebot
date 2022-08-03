@@ -1,2 +1,5 @@
 export * from './Item'
 export * from './ItemNbt'
+export * from './Vec3'
+export * from './Vec2'
+export * from './Rotation'
